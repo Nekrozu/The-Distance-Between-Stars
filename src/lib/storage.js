@@ -4,12 +4,39 @@ const ALBUM_KEY = 'andini-scrapbook-v1';
 const DATABASE = 'andini-photo-album-v1';
 const STORE = 'uploads';
 
+// On earlier deployments, the browser may have saved the original starter text.
+// Upgrade only those exact old captions/labels/notes, keeping personal edits and
+// uploaded images untouched. This lets returning visitors see the new photo text.
+const ORIGINAL_STARTER_DETAILS = {
+  p1: ['Under the very same sky', 'Our little reminder', 'Different places, one sky. I like thinking about that.'],
+  p2: ['Somewhere between here and you', 'The distance chapter', 'A little space for every message that made a day sweeter.'],
+  p3: ['A date we’ll have someday', 'Still on our wish list', 'Just us, a quiet table, and all the things we want to say in person.'],
+  p4: ['When I look up at night', 'A soft little thought', 'Maybe the moon is keeping both of us company.'],
+  p5: ['Flowers for you, from afar', 'A tiny imaginary bouquet', 'Until I can hand you some flowers myself.'],
+  p6: ['Rainy-day conversations', 'A mood, not a date', 'Even ordinary moments can become something to keep.'],
+  p7: ['All the little coincidences', 'Somewhere in this universe', 'Out of all the people in the world, somehow our paths crossed.'],
+  p8: ['A silly little interruption', 'For the giggles', 'A reminder to put our jokes, screenshots, and funny memories here.'],
+};
+function upgradeStarterCaptions(savedMemories) {
+  const current = Object.fromEntries(scrapbookSeed.memories.map(memory => [memory.id, memory]));
+  return savedMemories.map(memory => {
+    const original = ORIGINAL_STARTER_DETAILS[memory.id];
+    const updated = current[memory.id];
+    if (!original || !updated) return memory;
+    const result = { ...memory };
+    ['caption', 'date', 'note'].forEach((field, index) => {
+      if (result[field] === original[index]) result[field] = updated[field];
+    });
+    return result;
+  });
+}
+
 export function initialAlbum() {
   if (typeof window === 'undefined') return structuredClone(scrapbookSeed);
   try {
     const saved = JSON.parse(localStorage.getItem(ALBUM_KEY) || 'null');
     // Merge allows new sections added to the app in the future.
-    return saved ? { ...structuredClone(scrapbookSeed), ...saved } : structuredClone(scrapbookSeed);
+    return saved ? { ...structuredClone(scrapbookSeed), ...saved, memories: Array.isArray(saved.memories) ? upgradeStarterCaptions(saved.memories) : structuredClone(scrapbookSeed.memories) } : structuredClone(scrapbookSeed);
   } catch {
     return structuredClone(scrapbookSeed);
   }

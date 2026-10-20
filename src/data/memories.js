@@ -1,6 +1,6 @@
 /**
  * Personalize this ONE file to make the scrapbook your own.
- * The bundled scene pictures are illustrative placeholders, not photos of the couple.
+ * The eight starter photos are the personal pictures chosen for Andini. The first is an imagined illustration of a future moment; it is not a photo of the couple together.
  * Real uploads through "Edit memories" persist in this browser only (no server).
  */
 export const scrapbookSeed = {
@@ -11,14 +11,14 @@ export const scrapbookSeed = {
   heroSubtitle: 'A collection of little things, quiet feelings, and the beautiful someday we’re walking towards.',
   openingNote: 'We may not have a photo together yet. But we already have a story worth keeping.',
   memories: [
-    { id: 'p1', image: '/memories/sunset.jpg', caption: 'Under the very same sky', date: 'Our little reminder', note: 'Different places, one sky. I like thinking about that.' },
-    { id: 'p2', image: '/memories/clouds.jpg', caption: 'Somewhere between here and you', date: 'The distance chapter', note: 'A little space for every message that made a day sweeter.' },
-    { id: 'p3', image: '/memories/coffee.jpg', caption: 'A date we’ll have someday', date: 'Still on our wish list', note: 'Just us, a quiet table, and all the things we want to say in person.' },
-    { id: 'p4', image: '/memories/moon.jpg', caption: 'When I look up at night', date: 'A soft little thought', note: 'Maybe the moon is keeping both of us company.' },
-    { id: 'p5', image: '/memories/meadow.jpg', caption: 'Flowers for you, from afar', date: 'A tiny imaginary bouquet', note: 'Until I can hand you some flowers myself.' },
-    { id: 'p6', image: '/memories/rainy-window.jpg', caption: 'Rainy-day conversations', date: 'A mood, not a date', note: 'Even ordinary moments can become something to keep.' },
-    { id: 'p7', image: '/memories/cosmos.jpg', caption: 'All the little coincidences', date: 'Somewhere in this universe', note: 'Out of all the people in the world, somehow our paths crossed.' },
-    { id: 'p8', image: '/memories/postcard-cat.jpg', caption: 'A silly little interruption', date: 'For the giggles', note: 'A reminder to put our jokes, screenshots, and funny memories here.' },
+    { id: 'p1', image: '/memories/sunset.jpg', caption: 'Under the same sky', date: 'Our imagined someday', note: 'We haven’t walked hand in hand yet, but I love imagining the day we finally do.' },
+    { id: 'p2', image: '/memories/clouds.jpg', caption: 'Somewhere between us', date: 'Brunei ↔ Jakarta · 1,531 km', note: 'There may be 1,531 kilometres between our airports, but you never feel that far from my heart.' },
+    { id: 'p3', image: '/memories/coffee.jpg', caption: 'Our future date', date: 'A date still to come', note: 'One day, I hope I get to sit across from you, laugh with you, and share a meal together.' },
+    { id: 'p4', image: '/memories/moon.jpg', caption: 'Thinking of you at night', date: 'Quiet little moments', note: 'Some nights feel a little softer when I think of you.' },
+    { id: 'p5', image: '/memories/meadow.jpg', caption: 'Flowers for Andini', date: 'A bouquet from afar', note: 'I hope someday I get to be the one handing you the flowers.' },
+    { id: 'p6', image: '/memories/rainy-window.jpg', caption: 'Rainy-day conversations', date: 'Our everyday moments', note: 'Even the most ordinary stories feel special when they come from you.' },
+    { id: 'p7', image: '/memories/cosmos.jpg', caption: 'A little piece of you', date: 'One of my favorite pictures', note: 'One of those pictures of you that makes me stop and smile for a while.' },
+    { id: 'p8', image: '/memories/postcard-cat.jpg', caption: 'Our silly little moments', date: 'For the giggles ♡', note: 'The playful moments and random silliness are some of my favorite parts of getting to know you.' },
   ],
   timeline: [
     { id: 't1', date: 'The beginning', title: 'Somehow, we found each other', description: 'No grand movie scene. Just two people whose worlds happened to cross.', photoId: 'p7' },
